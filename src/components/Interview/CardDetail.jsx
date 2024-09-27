@@ -25,7 +25,7 @@ const CardDetail = () => {
       const trimmedSentence = sentence.trim(); // Remove extra spaces
 
       if (index % 2 === 1) { 
-        return `A. ${trimmedSentence}<br/>`; // Normal text for even indices
+        return `<strong>Answer</strong> : ${trimmedSentence}<br/>`; // Normal text for even indices
       } else {
         return `<strong> Q. ${trimmedSentence}</strong>`; // Bold text for odd indices
       }
@@ -35,7 +35,7 @@ const CardDetail = () => {
   return (
     <div className="selected-card">
       <div className="card-content">
-        <h2>{card.name}</h2>
+        <h2>Top Interview Questions of {card.name}</h2><br />
         {/* Render formatted info with commas replaced by <br> and alternating bold sentences */}
         <p dangerouslySetInnerHTML={{ __html: formatInfo(card.info) }}></p><br />
         <button className="back-button" onClick={handleBack}>
