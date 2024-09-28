@@ -38,7 +38,7 @@ export default function Contact() {
                                     />
                                 </svg>
                                 <div className="w-40 ml-4 font-semibold tracking-wide text-md">
-                                    Acme Inc, Street, State, Postal Code
+                                    Hit, Hatiberia, West Bengal, 721657
                                 </div>
                             </div>
 
@@ -60,7 +60,7 @@ export default function Contact() {
                                     />
                                 </svg>
                                 <div className="w-40 ml-4 font-semibold tracking-wide text-md">
-                                    +44 1234567890
+                                    +91 9973456845
                                 </div>
                             </div>
 
@@ -82,7 +82,7 @@ export default function Contact() {
                                     />
                                 </svg>
                                 <div className="w-40 ml-4 font-semibold tracking-wide text-md">
-                                    info@acme.org
+                                    interview@prep.org
                                 </div>
                             </div>
                         </div>

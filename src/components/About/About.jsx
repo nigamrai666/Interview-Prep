@@ -13,16 +13,13 @@ export default function About() {
                     </div>
                     <div className="md:7/12 lg:w-6/12">
                         <h2 className="text-2xl font-bold text-gray-900 md:text-4xl">
-                            React development is carried out by passionate developers
+                            Be a Champion of YourSelf
                         </h2>
                         <p className="mt-6 text-gray-600">
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum omnis voluptatem
-                            accusantium nemo perspiciatis delectus atque autem! Voluptatum tenetur beatae unde
-                            aperiam, repellat expedita consequatur! Officiis id consequatur atque doloremque!
+                        Interview Prep is your ultimate platform to prepare for technical, behavioral, and managerial interviews across various industries. Our mission is to help job seekers and professionals enhance their interview skills and land their dream jobs. Whether you are a fresh graduate, a career switcher, or a seasoned professional, Interview Prep provides comprehensive tools and resources to help you succeed in every stage of the interview process.
                         </p>
                         <p className="mt-4 text-gray-600">
-                            Nobis minus voluptatibus pariatur dignissimos libero quaerat iure expedita at?
-                            Asperiores nemo possimus nesciunt dicta veniam aspernatur quam mollitia.
+                        We provide an extensive collection of interview questions across multiple domains, including software engineering, data science, web development, system design, and more. Each question is accompanied by expert answers and explanations to help you understand the key concepts and strategies behind the solutions.
                         </p>
                     </div>
                 </div>

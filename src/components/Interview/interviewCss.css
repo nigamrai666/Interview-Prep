@@ -71,6 +71,24 @@ body {
     color: #666;
   }
   
+  /* Loader animation */
+.loader {
+  border: 8px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #09f;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+  
   /* Selected card details styling */
   .selected-card {
     background-color: #e9edee;
