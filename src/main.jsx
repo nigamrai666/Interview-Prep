@@ -31,7 +31,6 @@ import CardDetail from './components/Interview/CardDetail.jsx'
 //       }
 //     ]
 //   }
-
 // ])
 
 const router = createBrowserRouter(
@@ -47,6 +46,7 @@ const router = createBrowserRouter(
     </Route>
   )
 )
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <RouterProvider router={router}/>

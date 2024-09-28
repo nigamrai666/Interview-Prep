@@ -60,7 +60,7 @@ export default function Contact() {
                                     />
                                 </svg>
                                 <div className="w-40 ml-4 font-semibold tracking-wide text-md">
-                                    +91 9973456845
+                                    +91 9876543210
                                 </div>
                             </div>
 
