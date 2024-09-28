@@ -31,17 +31,17 @@ const HomePage = () => {
         <div className="features-cards">
           {/* Feature cards */}
           <div className="feature-card">
-            <img src="../public/mock interview.jpg" alt="Mock Interviews" className="feature-image" />
+            <img src="/mock interview.jpg" alt="Mock Interviews" className="feature-image" />
             <h3>Mock Interviews</h3>
             <p>Practice real-world interview scenarios to build confidence.</p>
           </div>
           <div className="feature-card">
-            <img src="../public/interview tips.jpg" alt="Interview Tips" className="feature-image" />
+            <img src="/interview tips.jpg" alt="Interview Tips" className="feature-image" />
             <h3>Interview Tips</h3>
             <p>Get personalized advice and strategies for acing interviews.</p>
           </div>
           <div className="feature-card">
-            <img src="../public/resources.jpg" alt="Resources" className="feature-image" />
+            <img src="/resources.jpg" alt="Resources" className="feature-image" />
             <h3>Resources</h3>
             <p>Access guides on data structures, algorithms, and soft skills.</p>
           </div>
