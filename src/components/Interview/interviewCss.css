@@ -28,7 +28,8 @@ body {
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 2rem;
-    color: #333;
+    /* color: #333; */
+    color: rgb(194 65 12);
   }
   
   /* Card container for grid layout */
@@ -92,7 +93,8 @@ body {
     text-align: center;
     font-size: 3rem;
     margin-bottom: 20px;
-    color: #333;
+    /* color: #333; */
+    color: rgb(194 65 12);
     text-decoration: underline;
   }
   
