@@ -10,7 +10,7 @@ const Interview = () => {
 
   // Fetch data from Google Sheets API
   useEffect(() => {
-    fetch('https://script.google.com/macros/s/AKfycbxvNuTzAEkwg55tOWTPE6zRFlUm7FMNM9MKEOxZo88jxN-xRPD3gVPPVEO9kPpR_dpT/exec')
+    fetch('https://script.google.com/macros/s/AKfycbxyb0KmZFC8792N26PvzyboFqzSKiEZpaSU0EQwl4Thmx7wqD7YAafpxrQU7U9EEuon/exec')
       .then((response) => response.json())
       .then((data) => {
         setCards(data);

@@ -88,7 +88,7 @@ body, html {
   
   /* Selected card details styling */
   .selected-card {
-    background-color: #e9edee;
+    background-color: #f0e8e866;
     width: 100%;
     max-width: 100%;
     padding: 40px;

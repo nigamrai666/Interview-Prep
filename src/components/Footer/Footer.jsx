@@ -23,14 +23,34 @@ export default function Footer() {
                             <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Resources</h2>
                             <ul className="font-medium text-gray-500">
                                 <li className="mb-4">
-                                    <Link to="/" className="hover:underline">
-                                        Home
-                                    </Link>
+                                <NavLink
+                                    to={'/'}
+                                    className={({ isActive }) =>
+                                        `block py-2 pr-4 pl-3 duration-200 border-b hover:underline 
+                                        ${isActive ? "text-orange-700" : "text-gray-700"}                                       
+                                        border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
+                                    }
+                                >
+                                    Home
+                                </NavLink>
+                                </li>
+                                <li className="mb-4">
+                                    <NavLink to="/about" className={({ isActive }) =>
+                                        `block py-2 pr-4 pl-3 duration-200 border-b hover:underline 
+                                        ${isActive ? "text-orange-700" : "text-gray-700"}                                       
+                                        border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
+                                    }>
+                                        About
+                                    </NavLink>
                                 </li>
                                 <li>
-                                    <Link to="/about" className="hover:underline">
-                                        About
-                                    </Link>
+                                    <NavLink to="/interview-prep" className={({ isActive }) =>
+                                        `block py-2 pr-4 pl-3 duration-200 border-b hover:underline 
+                                        ${isActive ? "text-orange-700" : "text-gray-700"}                                       
+                                        border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
+                                    }>
+                                        Prep
+                                    </NavLink>
                                 </li>
                             </ul>
                         </div>
@@ -38,14 +58,17 @@ export default function Footer() {
                             <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Follow us</h2>
                             <ul className="font-medium text-gray-500">
                                 <li className="mb-4">
-                                    <a
-                                        href="https://github.com/nigamrai666"
-                                        className="hover:underline"
+                                    <NavLink
+                                        to="https://github.com/nigamrai666"
+                                        className={
+                                            `block py-2 pr-4 pl-3 duration-200 border-b hover:underline 
+                                            border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
+                                        }
                                         target="_blank"
                                         rel="noreferrer"
                                     >
                                         Github
-                                    </a>
+                                    </NavLink>
                                 </li>
                                 {/* <li>
                                     <Link to="/" className="hover:underline">
@@ -58,12 +81,12 @@ export default function Footer() {
                             <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Legal</h2>
                             <ul className="font-medium text-gray-500">
                                 <li className="mb-4">
-                                    <Link to="#" className="hover:underline">
+                                    <Link to="#" className="block py-2 pl-3 pr-4 duration-200 border-b border-gray-100 hover:underline hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0">
                                         Privacy Policy
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="#" className="hover:underline">
+                                    <Link to="#" className="block py-2 pl-3 pr-4 duration-200 border-b border-gray-100 hover:underline hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0">
                                         Terms &amp; Conditions
                                     </Link>
                                 </li>
