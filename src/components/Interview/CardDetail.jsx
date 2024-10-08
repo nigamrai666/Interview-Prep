@@ -15,29 +15,38 @@ const CardDetail = () => {
 
   // Format the info by alternating bold and normal sentences, and inserting line breaks
   const formatInfo = (info) => {
-    if (!info) return '';
+    if (!info) return null;
 
-    // Split the info by commas
-    const sentences = info.split('~');
+    const sentences = info.split('~').map(sentence => sentence.trim());
 
-    // Iterate over sentences and wrap every alternate one in <strong> for bold
     return sentences.map((sentence, index) => {
-      const trimmedSentence = sentence.trim(); // Remove extra spaces
-
-      if (index % 2 === 1) { 
-        return `<strong>Answer</strong> : ${trimmedSentence}<br/>`; // Normal text for even indices
+      if (index % 2 === 0) {
+        // Return question with a line break
+        return (
+          <React.Fragment key={index}>
+            <strong>Q. {sentence}</strong>
+            <br />
+          </React.Fragment>
+        );
       } else {
-        return `<strong> Q. ${trimmedSentence}</strong>`; // Bold text for odd indices
+        // Return answer with a line break
+        return (
+          <React.Fragment key={index}>
+            <strong>Answer:</strong> {sentence}
+            <br />
+            <br />
+          </React.Fragment>
+        );
       }
-    }).join('<br/>'); // Join with <br/> for line breaks
+    });
   };
+
 
   return (
     <div className="selected-card">
       <div className="card-content">
         <h2>Top Interview Questions of {card.name}</h2><br />
-        {/* Render formatted info with commas replaced by <br> and alternating bold sentences */}
-        <p dangerouslySetInnerHTML={{ __html: formatInfo(card.info) }}></p><br />
+        <p>{formatInfo(card.info)}</p><br />
         <button className="back-button" onClick={handleBack}>
           Back
         </button>
