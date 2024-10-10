@@ -27,7 +27,7 @@ export default function Footer() {
                                     to={'/'}
                                     className={({ isActive }) =>
                                         `block py-2 pr-4 pl-3 duration-200 border-b hover:underline 
-                                        ${isActive ? "text-orange-700" : "text-gray-700"}                                       
+                                        ${isActive ? "text-orange-700 underline" : "text-gray-700"}                                       
                                         border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
                                     }
                                 >
@@ -37,19 +37,28 @@ export default function Footer() {
                                 <li className="mb-4">
                                     <NavLink to="/about" className={({ isActive }) =>
                                         `block py-2 pr-4 pl-3 duration-200 border-b hover:underline 
-                                        ${isActive ? "text-orange-700" : "text-gray-700"}                                       
+                                        ${isActive ? "text-orange-700 underline" : "text-gray-700"}                                       
                                         border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
                                     }>
                                         About
                                     </NavLink>
                                 </li>
-                                <li>
+                                <li className='mb-4'>
                                     <NavLink to="/interview-prep" className={({ isActive }) =>
                                         `block py-2 pr-4 pl-3 duration-200 border-b hover:underline 
-                                        ${isActive ? "text-orange-700" : "text-gray-700"}                                       
+                                        ${isActive ? "text-orange-700 underline" : "text-gray-700"}                                       
                                         border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
                                     }>
                                         Prep
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/contactUs" className={({ isActive }) =>
+                                        `block py-2 pr-4 pl-3 duration-200 border-b hover:underline 
+                                        ${isActive ? "text-orange-700 underline" : "text-gray-700"}                                       
+                                        border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
+                                    }>
+                                        Contact Us
                                     </NavLink>
                                 </li>
                             </ul>

@@ -21,7 +21,7 @@ const HomePage = () => {
         </p>
         {/* Call handleClick on button click */}
         <button className="cta-button" onClick={handleClick}>
-          Start Your Preparation Journey
+          Start Your Preparation Journey &#8594;
         </button>
       </section>
 
