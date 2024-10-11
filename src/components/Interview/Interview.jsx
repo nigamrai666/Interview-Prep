@@ -45,7 +45,7 @@ const Interview = () => {
                     )}
 
                     {/* <h3>{card.name}</h3> */}
-                    <p>Click to view details</p>
+                    <p>Click to view </p>
                   </div>
                 </div>
               );

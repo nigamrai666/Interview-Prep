@@ -66,6 +66,7 @@ body, html {
   .card-body p {
     font-size: 1rem;
     color: rgb(194 65 12);
+    text-decoration: underline;
   }
 
   .card-image {
