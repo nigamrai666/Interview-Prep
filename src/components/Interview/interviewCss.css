@@ -65,8 +65,16 @@ body, html {
   
   .card-body p {
     font-size: 1rem;
-    color: #666;
+    color: rgb(194 65 12);
   }
+
+  .card-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+  
   
   /* Loader animation */
 .loader {
