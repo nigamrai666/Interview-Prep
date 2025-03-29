@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Loader from '../Loader/Loader.jsx';
-import './interviewCss.css';
+import './Practice.css';
 
-const Interview = () => {
+const Practice = () => {
   const [cards, setCards] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('https://script.google.com/macros/s/AKfycbzI_rB4uIWVOIlrb0nBbY7yGEj2jn0hIPDkob1mbaKISnRsvNpRDkzetvF7Ui57veNU/exec')
+    fetch('https://script.google.com/macros/s/AKfycbyZc9OrlBmWQS35fZK8H3LiKZG2rfuCxkhe-rsYl8ovqea57hYMvQL-8vAJKyInCtyz/exec')
       .then((response) => response.json())
       .then((data) => {
         setCards(data);
@@ -22,7 +22,7 @@ const Interview = () => {
   }, []);
 
   const handleClick = (card) => {
-    navigate(`/interview-prep/${card.id}`, { state: { card } });
+    navigate(`/practice/${card.id}`, { state: { card } });
   };
 
   return (
@@ -31,20 +31,20 @@ const Interview = () => {
         <Loader />
       ) : (
         <div className="container">
-          <h1 className="title">Subjects</h1>
+          <h1 className="title">Topics</h1>
           <div className="cards">
             {cards.map((card, index) => {
-              console.log("Image URL:", card.image); // Add this line for debugging
+            //   console.log("Image URL:", card.image); // Add this line for debugging
               return (
                 <div key={index} className="card" onClick={() => handleClick(card)}>
                   <div className="card-body">
-                    {card.image ? (
+                    {/* {card.image ? (
                       <img src={card.image} alt={`${card.name} image`} className="card-image" />
                     ) : (
                       <p>No image available</p>
-                    )}
+                    )} */}
 
-                    {/* <h3>{card.name}</h3> */}
+                    <h3>{card.name}</h3>
                     <p>Click to view </p>
                   </div>
                 </div>
@@ -58,4 +58,4 @@ const Interview = () => {
   );
 };
 
-export default Interview;
+export default Practice;
