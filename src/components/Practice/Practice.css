@@ -1,0 +1,145 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+  
+  
+  
+  /* Styling for the entire container */
+  .container {
+    padding: 2rem;
+    width: 100%;  /* You can remove max-width if not needed */
+    max-width: 100%;
+    background-color: #f7f7f7;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+    
+    /* Page title styling */
+    .title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+      /* color: #333; */
+      color: rgb(194 65 12);
+    }
+    
+    /* Card container for grid layout */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 1200px;
+    }
+    
+    /* Card styling */
+    .card {
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 12px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Card body content */
+    .card-body {
+      text-align: center;
+    }
+    
+    .card-body h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    
+    .card-body p {
+      font-size: 1rem;
+      color: rgb(194 65 12);
+      text-decoration: underline;
+    }
+  
+    .card-image {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    
+    
+    /* Loader animation */
+  .loader {
+    border: 8px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #09f;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+  }
+  
+  @keyframes spin {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+    
+    /* Selected card details styling */
+    .selected-card {
+      background-color: #f0e8e866;
+      width: 100%;
+      max-width: 100%;
+      padding: 40px;
+      display: flex;
+      align-items:center;
+      justify-content: left;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+  
+    .card-content{
+      width: 100%;
+      max-width: 100%;
+    }
+    
+    .card-content h2 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 20px;
+      /* color: #333; */
+      color: rgb(194 65 12);
+      text-decoration: underline;
+    }
+    
+    .card-content p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      color: #555;
+    }
+    
+    /* Back button styling */
+    .back-button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .back-button:hover {
+      background-color: #0056b3;
+    }
+    
