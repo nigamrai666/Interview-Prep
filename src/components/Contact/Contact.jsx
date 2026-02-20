@@ -38,7 +38,7 @@ export default function Contact() {
                                     />
                                 </svg>
                                 <div className="w-40 ml-4 font-semibold tracking-wide text-md">
-                                    Hit, Hatiberia, West Bengal, 721657
+                                    Samneghat, Lanka, Uttar Pradesh, 221005
                                 </div>
                             </div>
 
