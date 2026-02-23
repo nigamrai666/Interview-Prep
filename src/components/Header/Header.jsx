@@ -42,7 +42,7 @@ export default function Header() {
               <span className="block text-sm font-semibold text-gray-800 sm:text-base">
                 Hi,&nbsp;
                 <span className="block text-base font-bold text-gray-900 sm:inline sm:text-lg">
-                  {user?.firstName}
+                  {user?.name}
                 </span>
               </span>
             )}
