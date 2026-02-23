@@ -7,52 +7,34 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    const DEMO_USERS = [
-      {
-        email: "user@interviewprep.com",
-        password: "User123",
-        firstName: "User",
-        lastName: "Demo",
-      },
-      {
-        email: "admin@interviewprep.com",
-        password: "Admin123",
-        firstName: "Admin",
-        lastName: "Demo",
-      },
-      {
-        email: "bhuwan1808@gmail.com",
-        password: "Bhuwan123",
-        firstName: "Bhuwan",
-        lastName: "Bhashkar",
-      },
-      {
-        email: "aman2104@gmail.com",
-        password: "Aman123",
-        firstName: "Aman",
-        lastName: "Rai",
-      },
-    ];
+  try {
+    const res = await fetch("https://interview-prep-backend.onrender.com/api/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
 
-    const matchedUser = DEMO_USERS.find(
-      (user) => user.email === email && user.password === password
-    );
+    const data = await res.json();
 
-    if (matchedUser) {
-      localStorage.setItem("token", "demo-login-token");
-      localStorage.setItem("user", JSON.stringify(matchedUser));
-
-      alert(`Welcome ${matchedUser.firstName} 🎉`);
-
-      // ✅ Redirect to HOME page after login
-      navigate("/");
-    } else {
-      alert("Invalid email or password");
+    if (!res.ok) {
+      alert(data.message || "Login failed");
+      return;
     }
-  };
+
+    // ✅ store auth data
+    localStorage.setItem("token", data.token);
+    localStorage.setItem("user", JSON.stringify(data.user));
+
+    alert(`Welcome ${data.user.name} 🎉`);
+
+    navigate("/");
+  } catch (error) {
+    alert("Server not reachable");
+  }
+};
 
   return (
     <div className="auth-page">
