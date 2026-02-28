@@ -2,39 +2,42 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Auth.css";
 
+const API = import.meta.env.VITE_API_BASE_URL;
+
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  try {
-    const res = await fetch("https://interview-prep-backend.onrender.com/api/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
+    try {
+      const res = await fetch(`${API}/api/auth/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
 
-    const data = await res.json();
+      const data = await res.json();
 
-    if (!res.ok) {
-      alert(data.message || "Login failed");
-      return;
+      if (!res.ok) {
+        alert(data.message || "Login failed");
+        return;
+      }
+
+      // ✅ store auth data
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
+
+      alert(`Welcome ${data.user.name} 🎉`);
+
+      navigate("/", { replace: true });
+    } catch (error) {
+      console.error("Login error:", error);
+      alert("Server error. Please try again.");
     }
-
-    // ✅ store auth data
-    localStorage.setItem("token", data.token);
-    localStorage.setItem("user", JSON.stringify(data.user));
-
-    alert(`Welcome ${data.user.name} 🎉`);
-
-    navigate("/");
-  } catch (error) {
-    alert("Server not reachable");
-  }
-};
+  };
 
   return (
     <div className="auth-page">
@@ -46,6 +49,7 @@ export default function Login() {
           <input
             type="email"
             placeholder="Email address"
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
@@ -53,6 +57,7 @@ export default function Login() {
           <input
             type="password"
             placeholder="Password"
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
