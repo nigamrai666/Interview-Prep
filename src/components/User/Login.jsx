@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Auth.css";
 
@@ -7,10 +7,12 @@ const API = import.meta.env.VITE_API_BASE_URL;
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
       const res = await fetch(`${API}/api/auth/login`, {
@@ -23,21 +25,31 @@ export default function Login() {
 
       if (!res.ok) {
         alert(data.message || "Login failed");
+        setLoading(false);
         return;
       }
 
-      // ✅ store auth data
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
 
-      alert(`Welcome ${data.user.name} 🎉`);
+      window.dispatchEvent(new Event("authChange"));
 
       navigate("/", { replace: true });
     } catch (error) {
       console.error("Login error:", error);
       alert("Server error. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
+
+  useEffect(() => {
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
+
+  // Notify header
+  window.dispatchEvent(new Event("authChange"));
+}, []);
 
   return (
     <div className="auth-page">
@@ -62,7 +74,13 @@ export default function Login() {
             required
           />
 
-          <button type="submit">Login</button>
+          <button type="submit" disabled={loading} className="auth-btn">
+            <span className={`btn-label ${loading ? "loading" : ""}`}>
+              Login
+            </span>
+
+            {loading && <span className="loader overlay-loader"></span>}
+          </button>
         </form>
 
         <p className="auth-switch">
