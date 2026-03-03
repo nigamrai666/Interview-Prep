@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Auth.css";
 
@@ -8,10 +8,12 @@ export default function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
       const res = await fetch(`${API}/api/auth/register`, {
@@ -31,14 +33,25 @@ export default function Register() {
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
 
-      alert("Welcome! Registration successful 🎉");
+      window.dispatchEvent(new Event("authChange"));
+
+      // alert("Welcome! Registration successful 🎉");
 
       navigate("/", { replace: true });
     } catch (error) {
       console.error("Register error:", error);
       alert("Server error. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
+
+  useEffect(() => {
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
+
+  window.dispatchEvent(new Event("authChange"));
+}, []);
 
   return (
     <div className="auth-page">
@@ -73,7 +86,13 @@ export default function Register() {
             required
           />
 
-          <button type="submit">Register</button>
+          <button type="submit" disabled={loading} className="auth-btn">
+            <span className={`btn-label ${loading ? "loading" : ""}`}>
+              Register
+            </span>
+
+            {loading && <span className="loader overlay-loader"></span>}
+          </button>
         </form>
 
         <p className="auth-switch">
